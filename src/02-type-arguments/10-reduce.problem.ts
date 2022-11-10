@@ -1,7 +1,10 @@
 import { expect, it } from "vitest";
 import { Equal, Expect } from "../helpers/type-utils";
 
-const array = [
+type Name = {
+  name:string
+}
+const array: Array<Name> = [
   {
     name: "John",
   },
@@ -10,7 +13,10 @@ const array = [
   },
 ];
 
-const obj = array.reduce((accum, item) => {}, {});
+const obj = array.reduce<Record<string, {name: string}>>((accum, item) => {
+  accum[item.name] = item;
+  return accum
+}, {});
 
 it("Should resolve to an object where name is the key", () => {
   expect(obj).toEqual({

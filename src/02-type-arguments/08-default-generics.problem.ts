@@ -6,7 +6,7 @@ export const createSet = <T>() => {
 
 const numberSet = createSet<number>();
 const stringSet = createSet<string>();
-const otherStringSet = createSet();
+const otherStringSet = createSet<string>();
 
 type tests = [
   Expect<Equal<typeof numberSet, Set<number>>>,
