@@ -11,7 +11,9 @@ export class Component<TProps> {
   getProps = () => this.props;
 }
 
-const cloneComponent = (component: unknown) => {};
+const cloneComponent = <T>(component: T): T => {
+  return component
+};
 
 it("Should clone the props from a passed-in Component", () => {
   const component = new Component({ a: 1, b: 2, c: 3 });
